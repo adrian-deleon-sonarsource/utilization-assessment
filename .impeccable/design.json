@@ -1,0 +1,972 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-19T19:16:19+00:00",
+  "title": "Design System: Maturity Assessment",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Echoes Indigo",
+        "tonalRamp": [
+          "#1f2559",
+          "#2f3a85",
+          "#4552b0",
+          "#5d6cd0",
+          "#7e8adc",
+          "#9fa9ed",
+          "#c7cdf6",
+          "#e8ebff"
+        ]
+      },
+      "primary-dark": {
+        "role": "primary",
+        "displayName": "Echoes Indigo (dark)",
+        "tonalRamp": [
+          "#1f2559",
+          "#2f3a85",
+          "#4552b0",
+          "#5d6cd0",
+          "#7e8adc",
+          "#9fa9ed",
+          "#c7cdf6",
+          "#e8ebff"
+        ]
+      },
+      "primary-weak": {
+        "role": "primary",
+        "displayName": "Indigo Wash",
+        "tonalRamp": [
+          "#1f2559",
+          "#2f3a85",
+          "#4552b0",
+          "#5d6cd0",
+          "#7e8adc",
+          "#9fa9ed",
+          "#c7cdf6",
+          "#e8ebff"
+        ]
+      },
+      "primary-weak-dark": {
+        "role": "primary",
+        "displayName": "Indigo Wash (dark, 30% alpha)",
+        "tonalRamp": [
+          "#1f2559",
+          "#2f3a85",
+          "#4552b0",
+          "#5d6cd0",
+          "#7e8adc",
+          "#9fa9ed",
+          "#c7cdf6",
+          "#e8ebff"
+        ]
+      },
+      "on-primary": {
+        "role": "primary",
+        "displayName": "On-Indigo",
+        "tonalRamp": [
+          "#2a2f40",
+          "#3e4357",
+          "#637192",
+          "#a6adc2",
+          "#c5cddf",
+          "#e1e6f3",
+          "#eff2f9",
+          "#fcfcfd"
+        ]
+      },
+      "text-strong": {
+        "role": "neutral",
+        "displayName": "Ink Slate",
+        "tonalRamp": [
+          "#2a2f40",
+          "#3e4357",
+          "#637192",
+          "#a6adc2",
+          "#c5cddf",
+          "#e1e6f3",
+          "#eff2f9",
+          "#fcfcfd"
+        ]
+      },
+      "text-default": {
+        "role": "neutral",
+        "displayName": "Body Slate",
+        "tonalRamp": [
+          "#2a2f40",
+          "#3e4357",
+          "#637192",
+          "#a6adc2",
+          "#c5cddf",
+          "#e1e6f3",
+          "#eff2f9",
+          "#fcfcfd"
+        ]
+      },
+      "text-subtle": {
+        "role": "neutral",
+        "displayName": "Muted Slate",
+        "tonalRamp": [
+          "#2a2f40",
+          "#3e4357",
+          "#637192",
+          "#a6adc2",
+          "#c5cddf",
+          "#e1e6f3",
+          "#eff2f9",
+          "#fcfcfd"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "tonalRamp": [
+          "#2a2f40",
+          "#3e4357",
+          "#637192",
+          "#a6adc2",
+          "#c5cddf",
+          "#e1e6f3",
+          "#eff2f9",
+          "#fcfcfd"
+        ]
+      },
+      "border-bold": {
+        "role": "neutral",
+        "displayName": "Control Border",
+        "tonalRamp": [
+          "#2a2f40",
+          "#3e4357",
+          "#637192",
+          "#a6adc2",
+          "#c5cddf",
+          "#e1e6f3",
+          "#eff2f9",
+          "#fcfcfd"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "tonalRamp": [
+          "#2a2f40",
+          "#3e4357",
+          "#637192",
+          "#a6adc2",
+          "#c5cddf",
+          "#e1e6f3",
+          "#eff2f9",
+          "#fcfcfd"
+        ]
+      },
+      "surface-secondary": {
+        "role": "neutral",
+        "displayName": "Cloud",
+        "tonalRamp": [
+          "#2a2f40",
+          "#3e4357",
+          "#637192",
+          "#a6adc2",
+          "#c5cddf",
+          "#e1e6f3",
+          "#eff2f9",
+          "#fcfcfd"
+        ]
+      },
+      "sidebar": {
+        "role": "neutral",
+        "displayName": "Sidebar White",
+        "tonalRamp": [
+          "#2a2f40",
+          "#3e4357",
+          "#637192",
+          "#a6adc2",
+          "#c5cddf",
+          "#e1e6f3",
+          "#eff2f9",
+          "#fcfcfd"
+        ]
+      },
+      "dark-page": {
+        "role": "neutral",
+        "displayName": "Echoes Dark Page",
+        "tonalRamp": [
+          "#2a2f40",
+          "#3e4357",
+          "#637192",
+          "#a6adc2",
+          "#c5cddf",
+          "#e1e6f3",
+          "#eff2f9",
+          "#fcfcfd"
+        ]
+      },
+      "dark-surface": {
+        "role": "neutral",
+        "displayName": "Echoes Dark Surface",
+        "tonalRamp": [
+          "#2a2f40",
+          "#3e4357",
+          "#637192",
+          "#a6adc2",
+          "#c5cddf",
+          "#e1e6f3",
+          "#eff2f9",
+          "#fcfcfd"
+        ]
+      },
+      "dark-sidebar": {
+        "role": "neutral",
+        "displayName": "Echoes Dark Sidebar",
+        "tonalRamp": [
+          "#2a2f40",
+          "#3e4357",
+          "#637192",
+          "#a6adc2",
+          "#c5cddf",
+          "#e1e6f3",
+          "#eff2f9",
+          "#fcfcfd"
+        ]
+      },
+      "dark-text-strong": {
+        "role": "neutral",
+        "displayName": "Ink Slate (dark)",
+        "tonalRamp": [
+          "#2a2f40",
+          "#3e4357",
+          "#637192",
+          "#a6adc2",
+          "#c5cddf",
+          "#e1e6f3",
+          "#eff2f9",
+          "#fcfcfd"
+        ]
+      },
+      "dark-text-default": {
+        "role": "neutral",
+        "displayName": "Body Slate (dark)",
+        "tonalRamp": [
+          "#2a2f40",
+          "#3e4357",
+          "#637192",
+          "#a6adc2",
+          "#c5cddf",
+          "#e1e6f3",
+          "#eff2f9",
+          "#fcfcfd"
+        ]
+      },
+      "dark-text-subtle": {
+        "role": "neutral",
+        "displayName": "Muted Slate (dark)",
+        "tonalRamp": [
+          "#2a2f40",
+          "#3e4357",
+          "#637192",
+          "#a6adc2",
+          "#c5cddf",
+          "#e1e6f3",
+          "#eff2f9",
+          "#fcfcfd"
+        ]
+      },
+      "dark-border": {
+        "role": "neutral",
+        "displayName": "Control Border (dark)",
+        "tonalRamp": [
+          "#2a2f40",
+          "#3e4357",
+          "#637192",
+          "#a6adc2",
+          "#c5cddf",
+          "#e1e6f3",
+          "#eff2f9",
+          "#fcfcfd"
+        ]
+      },
+      "success-text": {
+        "role": "state",
+        "displayName": "Success text",
+        "tonalRamp": [
+          "#1b2a07",
+          "#2e470c",
+          "#3f6112",
+          "#537c17",
+          "#75a92c",
+          "#9dcb6b",
+          "#c4ea9e",
+          "#f3f8ef"
+        ]
+      },
+      "success-text-dark": {
+        "role": "state",
+        "displayName": "Success text (dark)",
+        "tonalRamp": [
+          "#1b2a07",
+          "#2e470c",
+          "#3f6112",
+          "#537c17",
+          "#75a92c",
+          "#9dcb6b",
+          "#c4ea9e",
+          "#f3f8ef"
+        ]
+      },
+      "warning-text": {
+        "role": "state",
+        "displayName": "Warning text",
+        "tonalRamp": [
+          "#2e1f09",
+          "#4d330f",
+          "#66400f",
+          "#8c5e1e",
+          "#c78a2a",
+          "#f5b840",
+          "#fadc79",
+          "#fcf5e4"
+        ]
+      },
+      "warning-text-dark": {
+        "role": "state",
+        "displayName": "Warning text (dark)",
+        "tonalRamp": [
+          "#2e1f09",
+          "#4d330f",
+          "#66400f",
+          "#8c5e1e",
+          "#c78a2a",
+          "#f5b840",
+          "#fadc79",
+          "#fcf5e4"
+        ]
+      },
+      "danger-text": {
+        "role": "state",
+        "displayName": "Danger text",
+        "tonalRamp": [
+          "#3a0c08",
+          "#5d1d13",
+          "#912018",
+          "#b42318",
+          "#d92d20",
+          "#f04438",
+          "#fda29b",
+          "#fef3f2"
+        ]
+      },
+      "danger-text-dark": {
+        "role": "state",
+        "displayName": "Danger text (dark)",
+        "tonalRamp": [
+          "#3a0c08",
+          "#5d1d13",
+          "#912018",
+          "#b42318",
+          "#d92d20",
+          "#f04438",
+          "#fda29b",
+          "#fef3f2"
+        ]
+      },
+      "rating-a-bg": {
+        "role": "rating",
+        "displayName": "Rating A bg",
+        "tonalRamp": [
+          "#054f31",
+          "#027a48",
+          "#039855",
+          "#12b76a",
+          "#32d583",
+          "#6ce9a6",
+          "#a6f4c5",
+          "#d1fadf"
+        ]
+      },
+      "rating-a-bg-dark": {
+        "role": "rating",
+        "displayName": "Rating A bg (dark)",
+        "tonalRamp": [
+          "#054f31",
+          "#027a48",
+          "#039855",
+          "#12b76a",
+          "#32d583",
+          "#6ce9a6",
+          "#a6f4c5",
+          "#d1fadf"
+        ]
+      },
+      "rating-a-text": {
+        "role": "rating",
+        "displayName": "Rating A text",
+        "tonalRamp": [
+          "#054f31",
+          "#027a48",
+          "#039855",
+          "#12b76a",
+          "#32d583",
+          "#6ce9a6",
+          "#a6f4c5",
+          "#d1fadf"
+        ]
+      },
+      "rating-a-text-dark": {
+        "role": "rating",
+        "displayName": "Rating A text (dark)",
+        "tonalRamp": [
+          "#054f31",
+          "#027a48",
+          "#039855",
+          "#12b76a",
+          "#32d583",
+          "#6ce9a6",
+          "#a6f4c5",
+          "#d1fadf"
+        ]
+      },
+      "rating-a-border": {
+        "role": "rating",
+        "displayName": "Rating A border",
+        "tonalRamp": [
+          "#054f31",
+          "#027a48",
+          "#039855",
+          "#12b76a",
+          "#32d583",
+          "#6ce9a6",
+          "#a6f4c5",
+          "#d1fadf"
+        ]
+      },
+      "rating-a-border-dark": {
+        "role": "rating",
+        "displayName": "Rating A border (dark)",
+        "tonalRamp": [
+          "#054f31",
+          "#027a48",
+          "#039855",
+          "#12b76a",
+          "#32d583",
+          "#6ce9a6",
+          "#a6f4c5",
+          "#d1fadf"
+        ]
+      },
+      "rating-b-bg": {
+        "role": "rating",
+        "displayName": "Rating B bg",
+        "tonalRamp": [
+          "#054f16",
+          "#2e470c",
+          "#537c17",
+          "#75a92c",
+          "#9dcb6b",
+          "#b3dd86",
+          "#c4ea9e",
+          "#d4f2b7"
+        ]
+      },
+      "rating-b-bg-dark": {
+        "role": "rating",
+        "displayName": "Rating B bg (dark)",
+        "tonalRamp": [
+          "#054f16",
+          "#2e470c",
+          "#537c17",
+          "#75a92c",
+          "#9dcb6b",
+          "#b3dd86",
+          "#c4ea9e",
+          "#d4f2b7"
+        ]
+      },
+      "rating-b-text": {
+        "role": "rating",
+        "displayName": "Rating B text",
+        "tonalRamp": [
+          "#054f16",
+          "#2e470c",
+          "#537c17",
+          "#75a92c",
+          "#9dcb6b",
+          "#b3dd86",
+          "#c4ea9e",
+          "#d4f2b7"
+        ]
+      },
+      "rating-b-text-dark": {
+        "role": "rating",
+        "displayName": "Rating B text (dark)",
+        "tonalRamp": [
+          "#054f16",
+          "#2e470c",
+          "#537c17",
+          "#75a92c",
+          "#9dcb6b",
+          "#b3dd86",
+          "#c4ea9e",
+          "#d4f2b7"
+        ]
+      },
+      "rating-b-border": {
+        "role": "rating",
+        "displayName": "Rating B border",
+        "tonalRamp": [
+          "#054f16",
+          "#2e470c",
+          "#537c17",
+          "#75a92c",
+          "#9dcb6b",
+          "#b3dd86",
+          "#c4ea9e",
+          "#d4f2b7"
+        ]
+      },
+      "rating-b-border-dark": {
+        "role": "rating",
+        "displayName": "Rating B border (dark)",
+        "tonalRamp": [
+          "#054f16",
+          "#2e470c",
+          "#537c17",
+          "#75a92c",
+          "#9dcb6b",
+          "#b3dd86",
+          "#c4ea9e",
+          "#d4f2b7"
+        ]
+      },
+      "rating-c-bg": {
+        "role": "rating",
+        "displayName": "Rating C bg",
+        "tonalRamp": [
+          "#66400f",
+          "#8c5e1e",
+          "#b07a1f",
+          "#f5b840",
+          "#f8c95a",
+          "#fadc79",
+          "#fce9a3",
+          "#fcf5e4"
+        ]
+      },
+      "rating-c-bg-dark": {
+        "role": "rating",
+        "displayName": "Rating C bg (dark)",
+        "tonalRamp": [
+          "#66400f",
+          "#8c5e1e",
+          "#b07a1f",
+          "#f5b840",
+          "#f8c95a",
+          "#fadc79",
+          "#fce9a3",
+          "#fcf5e4"
+        ]
+      },
+      "rating-c-text": {
+        "role": "rating",
+        "displayName": "Rating C text",
+        "tonalRamp": [
+          "#66400f",
+          "#8c5e1e",
+          "#b07a1f",
+          "#f5b840",
+          "#f8c95a",
+          "#fadc79",
+          "#fce9a3",
+          "#fcf5e4"
+        ]
+      },
+      "rating-c-text-dark": {
+        "role": "rating",
+        "displayName": "Rating C text (dark)",
+        "tonalRamp": [
+          "#66400f",
+          "#8c5e1e",
+          "#b07a1f",
+          "#f5b840",
+          "#f8c95a",
+          "#fadc79",
+          "#fce9a3",
+          "#fcf5e4"
+        ]
+      },
+      "rating-c-border": {
+        "role": "rating",
+        "displayName": "Rating C border",
+        "tonalRamp": [
+          "#66400f",
+          "#8c5e1e",
+          "#b07a1f",
+          "#f5b840",
+          "#f8c95a",
+          "#fadc79",
+          "#fce9a3",
+          "#fcf5e4"
+        ]
+      },
+      "rating-c-border-dark": {
+        "role": "rating",
+        "displayName": "Rating C border (dark)",
+        "tonalRamp": [
+          "#66400f",
+          "#8c5e1e",
+          "#b07a1f",
+          "#f5b840",
+          "#f8c95a",
+          "#fadc79",
+          "#fce9a3",
+          "#fcf5e4"
+        ]
+      },
+      "rating-d-bg": {
+        "role": "rating",
+        "displayName": "Rating D bg",
+        "tonalRamp": [
+          "#7a2e0e",
+          "#93370d",
+          "#b54708",
+          "#f75f09",
+          "#fd7122",
+          "#fd9c58",
+          "#ffd6af",
+          "#fff0eb"
+        ]
+      },
+      "rating-d-bg-dark": {
+        "role": "rating",
+        "displayName": "Rating D bg (dark)",
+        "tonalRamp": [
+          "#7a2e0e",
+          "#93370d",
+          "#b54708",
+          "#f75f09",
+          "#fd7122",
+          "#fd9c58",
+          "#ffd6af",
+          "#fff0eb"
+        ]
+      },
+      "rating-d-text": {
+        "role": "rating",
+        "displayName": "Rating D text",
+        "tonalRamp": [
+          "#7a2e0e",
+          "#93370d",
+          "#b54708",
+          "#f75f09",
+          "#fd7122",
+          "#fd9c58",
+          "#ffd6af",
+          "#fff0eb"
+        ]
+      },
+      "rating-d-text-dark": {
+        "role": "rating",
+        "displayName": "Rating D text (dark)",
+        "tonalRamp": [
+          "#7a2e0e",
+          "#93370d",
+          "#b54708",
+          "#f75f09",
+          "#fd7122",
+          "#fd9c58",
+          "#ffd6af",
+          "#fff0eb"
+        ]
+      },
+      "rating-d-border": {
+        "role": "rating",
+        "displayName": "Rating D border",
+        "tonalRamp": [
+          "#7a2e0e",
+          "#93370d",
+          "#b54708",
+          "#f75f09",
+          "#fd7122",
+          "#fd9c58",
+          "#ffd6af",
+          "#fff0eb"
+        ]
+      },
+      "rating-d-border-dark": {
+        "role": "rating",
+        "displayName": "Rating D border (dark)",
+        "tonalRamp": [
+          "#7a2e0e",
+          "#93370d",
+          "#b54708",
+          "#f75f09",
+          "#fd7122",
+          "#fd9c58",
+          "#ffd6af",
+          "#fff0eb"
+        ]
+      },
+      "rating-e-bg": {
+        "role": "rating",
+        "displayName": "Rating E bg",
+        "tonalRamp": [
+          "#5d1d13",
+          "#912018",
+          "#b42318",
+          "#d92d20",
+          "#f04438",
+          "#fda29b",
+          "#fecdca",
+          "#fef3f2"
+        ]
+      },
+      "rating-e-bg-dark": {
+        "role": "rating",
+        "displayName": "Rating E bg (dark)",
+        "tonalRamp": [
+          "#5d1d13",
+          "#912018",
+          "#b42318",
+          "#d92d20",
+          "#f04438",
+          "#fda29b",
+          "#fecdca",
+          "#fef3f2"
+        ]
+      },
+      "rating-e-text": {
+        "role": "rating",
+        "displayName": "Rating E text",
+        "tonalRamp": [
+          "#5d1d13",
+          "#912018",
+          "#b42318",
+          "#d92d20",
+          "#f04438",
+          "#fda29b",
+          "#fecdca",
+          "#fef3f2"
+        ]
+      },
+      "rating-e-text-dark": {
+        "role": "rating",
+        "displayName": "Rating E text (dark)",
+        "tonalRamp": [
+          "#5d1d13",
+          "#912018",
+          "#b42318",
+          "#d92d20",
+          "#f04438",
+          "#fda29b",
+          "#fecdca",
+          "#fef3f2"
+        ]
+      },
+      "rating-e-border": {
+        "role": "rating",
+        "displayName": "Rating E border",
+        "tonalRamp": [
+          "#5d1d13",
+          "#912018",
+          "#b42318",
+          "#d92d20",
+          "#f04438",
+          "#fda29b",
+          "#fecdca",
+          "#fef3f2"
+        ]
+      },
+      "rating-e-border-dark": {
+        "role": "rating",
+        "displayName": "Rating E border (dark)",
+        "tonalRamp": [
+          "#5d1d13",
+          "#912018",
+          "#b42318",
+          "#d92d20",
+          "#f04438",
+          "#fda29b",
+          "#fecdca",
+          "#fef3f2"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Customer name in the page header; big count in the overview strip."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Section headings inside a tab; sidebar product name."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All running text, metadata, captions, control values (14px base)."
+      },
+      "tab": {
+        "displayName": "Tab",
+        "purpose": "Underline project tabs."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Overview cell labels, sentence case."
+      },
+      "rating": {
+        "displayName": "Rating digit",
+        "purpose": "Level digit inside the rating badge, tabular figures."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "File names, folder paths, JSON keys (1.05em when inline)."
+      }
+    },
+    "shadows": [],
+    "motion": [],
+    "breakpoints": [
+      {
+        "name": "overview-stack",
+        "value": "720px"
+      }
+    ],
+    "layout": {
+      "mainMaxWidth": "1280px",
+      "mainPaddingTop": "4rem",
+      "tabGap": "1.5rem",
+      "tabPanelPaddingTop": "1.5rem"
+    },
+    "themes": {
+      "mode": "follows OS (light and Echoes dark)",
+      "source": ".streamlit/config.toml + ECHOES in app.py"
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one indigo action at the end of a tab's flow.",
+      "html": "<button class=\"ds-btn-primary\">Rebuild report from cached answers</button>",
+      "css": ".ds-btn-primary { background:#5d6cd0; color:#ffffff; border:1px solid #5d6cd0; border-radius:4px; padding:6px 12px; font:400 14px/20px Inter, ui-sans-serif, system-ui, sans-serif; cursor:pointer; transition:background .15s, border-color .15s; } .ds-btn-primary:hover { background:#4552b0; border-color:#4552b0; } .ds-btn-primary:focus-visible { outline:2px solid #5d6cd0; outline-offset:2px; }"
+    },
+    {
+      "name": "Primary Button (dark)",
+      "kind": "button",
+      "refersTo": "button-primary-dark",
+      "description": "Dark-mode primary: light indigo fill with #2a2f40 text for contrast.",
+      "html": "<div class=\"ds-dark-canvas\"><button class=\"ds-btn-primary-dark\">Word report (.docx)</button></div>",
+      "css": ".ds-dark-canvas { background:#2a2f40; padding:16px; } .ds-btn-primary-dark { background:#9fa9ed; color:#2a2f40; border:1px solid #9fa9ed; border-radius:4px; padding:6px 12px; font:400 14px/20px Inter, ui-sans-serif, system-ui, sans-serif; cursor:pointer; transition:background .15s; } .ds-btn-primary-dark:hover { background:#c7cdf6; } .ds-btn-primary-dark:focus-visible { outline:2px solid #9fa9ed; outline-offset:2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Every non-primary action; disabled when it cannot apply, never hidden.",
+      "html": "<button class=\"ds-btn-secondary\">Findings and evidence (.md)</button> <button class=\"ds-btn-secondary\" disabled>Save choices and rebuild report</button>",
+      "css": ".ds-btn-secondary { background:#ffffff; color:#3e4357; border:1px solid #c5cddf; border-radius:4px; padding:6px 12px; font:400 14px/20px Inter, ui-sans-serif, system-ui, sans-serif; cursor:pointer; transition:border-color .15s, color .15s; } .ds-btn-secondary:hover:not(:disabled) { border-color:#5d6cd0; color:#5d6cd0; } .ds-btn-secondary:focus-visible { outline:2px solid #5d6cd0; outline-offset:2px; } .ds-btn-secondary:disabled { color:#a6adc2; border-color:#e1e6f3; cursor:not-allowed; }"
+    },
+    {
+      "name": "Project Tabs",
+      "kind": "nav",
+      "refersTo": "tab",
+      "description": "SonarQube-style underline tabs, numbered in flow order; annex unnumbered.",
+      "html": "<div class=\"ds-tabs\" role=\"tablist\"><button class=\"ds-tab\" role=\"tab\">1 · Evidence</button><button class=\"ds-tab\" role=\"tab\">2 · Run</button><button class=\"ds-tab\" role=\"tab\" aria-selected=\"true\">3 · Review &amp; download</button><button class=\"ds-tab\" role=\"tab\">Charts</button></div>",
+      "css": ".ds-tabs { display:flex; gap:24px; border-bottom:1px solid #e1e6f3; } .ds-tab { background:none; border:0; border-bottom:2px solid transparent; margin-bottom:-1px; padding:8px 0; font:600 14px/20px Inter, ui-sans-serif, system-ui, sans-serif; color:#637192; cursor:pointer; } .ds-tab:hover, .ds-tab[aria-selected=\"true\"] { color:#1d212f; } .ds-tab[aria-selected=\"true\"] { border-bottom-color:#5d6cd0; } .ds-tab:focus-visible { outline:2px solid #5d6cd0; outline-offset:2px; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Sentence-case label above a 4px field; indigo focus.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Customer name</span><input class=\"ds-input\" placeholder=\"Example Customer\"></label>",
+      "css": ".ds-field { display:grid; gap:4px; font:400 14px/20px Inter, ui-sans-serif, system-ui, sans-serif; color:#3e4357; } .ds-input { background:#eff2f9; color:#3e4357; border:1px solid #c5cddf; border-radius:4px; padding:8px 12px; font:inherit; } .ds-input::placeholder { color:#637192; } .ds-input:focus-visible { outline:none; border-color:#5d6cd0; box-shadow:0 0 0 1px #5d6cd0; }"
+    },
+    {
+      "name": "Page Header",
+      "kind": "custom",
+      "refersTo": "headline",
+      "description": "Customer name, assessor and folder as subtle metadata, hairline below.",
+      "html": "<div class=\"ds-header\"><h1>Example Customer</h1><div class=\"ds-meta\">Assessor: Example Assessor · <code>customers/example_customer</code></div></div>",
+      "css": ".ds-header { border-bottom:1px solid #e1e6f3; padding-bottom:16px; } .ds-header h1 { font:600 24px/36px Inter, ui-sans-serif, system-ui, sans-serif; color:#1d212f; margin:0; } .ds-meta { font:400 14px/20px Inter, ui-sans-serif, system-ui, sans-serif; color:#637192; margin-top:4px; } .ds-meta code { font-family:'Ubuntu Mono', ui-monospace, Menlo, monospace; font-size:1.05em; color:#3e4357; }"
+    },
+    {
+      "name": "Rating Badge",
+      "kind": "custom",
+      "refersTo": "rating-badge-a",
+      "description": "Signature: maturity level digit in a SonarQube A-E rating square (5->A ... 1->E).",
+      "html": "<div class=\"ds-badges\"><span class=\"ds-rating ds-ra\">5</span><span class=\"ds-rating ds-rb\">4</span><span class=\"ds-rating ds-rc\">3</span><span class=\"ds-rating ds-rd\">2</span><span class=\"ds-rating ds-re\">1</span></div>",
+      "css": ".ds-badges { display:flex; gap:12px; } .ds-rating { width:40px; height:40px; border-radius:8px; border:1px solid; display:grid; place-items:center; font:700 20px/1 Inter, ui-sans-serif, system-ui, sans-serif; font-variant-numeric:tabular-nums; } .ds-ra { background:#d1fadf; color:#054f31; border-color:#12b76a; } .ds-rb { background:#d4f2b7; color:#054f16; border-color:#9dcb6b; } .ds-rc { background:#fce9a3; color:#66400f; border-color:#f5b840; } .ds-rd { background:#ffd6af; color:#7a2e0e; border-color:#fd7122; } .ds-re { background:#fecdca; color:#5d1d13; border-color:#f04438; }"
+    },
+    {
+      "name": "Overview Strip",
+      "kind": "card",
+      "refersTo": "overview-cell",
+      "description": "Review's three-cell strip: criteria level, Jev's score with agreement note, recommendation counts.",
+      "html": "<div class=\"ds-ov\"><div class=\"ds-cell\"><div class=\"ds-lbl\">Maturity level (criteria)</div><div class=\"ds-row\"><span class=\"ds-rating ds-rd\">2</span><div><div class=\"ds-val\">Level 2</div><div class=\"ds-note\">Level name</div></div></div></div><div class=\"ds-cell\"><div class=\"ds-lbl\">Jev's overall score</div><div class=\"ds-row\"><span class=\"ds-rating ds-rc\">3</span><div><div class=\"ds-val\">Level 3</div><div class=\"ds-note\">Level name</div><div class=\"ds-note ds-warn\">Differs from the criteria level: check the recommendations to review</div></div></div></div><div class=\"ds-cell\"><div class=\"ds-lbl\">Recommendations</div><div class=\"ds-big\">12 <span class=\"ds-note\">included</span></div><div class=\"ds-note ds-warn\">3 to review</div></div></div>",
+      "css": ".ds-ov { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border:1px solid #e1e6f3; border-radius:8px; font-family:Inter, ui-sans-serif, system-ui, sans-serif; } .ds-cell { padding:16px 20px; min-width:0; } .ds-cell + .ds-cell { border-left:1px solid #e1e6f3; } .ds-lbl { font:600 12px/16px Inter, ui-sans-serif, system-ui, sans-serif; color:#637192; margin-bottom:12px; } .ds-row { display:flex; align-items:center; gap:12px; } .ds-val { font:600 16px/24px Inter, ui-sans-serif, system-ui, sans-serif; color:#1d212f; } .ds-note { font:400 14px/20px Inter, ui-sans-serif, system-ui, sans-serif; color:#637192; } .ds-big { font:600 24px/36px Inter, ui-sans-serif, system-ui, sans-serif; color:#1d212f; font-variant-numeric:tabular-nums; } .ds-warn { color:#8c5e1e; } .ds-rating { flex:none; width:40px; height:40px; border-radius:8px; border:1px solid; display:grid; place-items:center; font:700 20px/1 Inter, ui-sans-serif, system-ui, sans-serif; font-variant-numeric:tabular-nums; } .ds-rc { background:#fce9a3; color:#66400f; border-color:#f5b840; } .ds-rd { background:#ffd6af; color:#7a2e0e; border-color:#fd7122; } @media (max-width:720px) { .ds-ov { grid-template-columns:1fr; } .ds-cell + .ds-cell { border-left:0; border-top:1px solid #e1e6f3; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "A Page Inside SonarQube",
+    "overview": "The tool is meant to read as one more page of SonarQube Server, built on Sonar's Echoes tokens, rather than as a Streamlit app with a Sonar-coloured accent. The assessor already works in SonarQube every day. The sidebar, the project header, the underline tabs and the rating badge all come from that environment, so nothing has to be learned. The Streamlit defaults (red accent, Source Sans, emoji metrics) are replaced, not tinted.\n\nIt is an Operate surface: dense, calm and flat. Cool slate text sits on white (or on the Echoes dark slate). Hairline borders separate panels, and the only saturated colours are the single indigo action per tab and the A–E rating colours. The signature is the maturity level drawn as a SonarQube rating badge. Level 5 maps to A (green) and level 1 to E (red), and the badge shows the level digit, so a reading of the level works exactly like a reading of a project's reliability rating.\n\nLight and dark follow the OS setting by default; the app menu (⋮, top right) switches between System, Light and Dark. Every custom token has a light and a dark value, emitted as CSS light-dark() variables on .stApp so the custom pieces switch with the menu without a rerun, and the dark values are chosen for contrast, not by inverting the light ones.",
+    "keyCharacteristics": [
+      "Echoes tokens throughout: Inter for UI text, Ubuntu Mono for code and file paths, both self-hosted.",
+      "One indigo primary action per tab, placed at the end of that tab's flow.",
+      "The rating badge (level digit in a 40px square, A–E colour) is the only decorative colour.",
+      "Flat surfaces separated by 1px hairlines. 4px corners on controls, 8px on panels.",
+      "Light and dark follow the OS unless the app menu picks one, and each has its own tuned token set."
+    ],
+    "rules": [
+      {
+        "name": "The One Indigo Rule",
+        "body": "Each tab has at most one indigo primary button, placed at the end of its flow. Every other action is secondary.",
+        "section": "colors"
+      },
+      {
+        "name": "The Warning-Not-Danger Rule",
+        "body": "When Jev's score differs from the criteria level, and when items are flagged \"to review\", the note uses the warning colour. A disagreement asks the assessor to check something. It is not an error.",
+        "section": "colors"
+      },
+      {
+        "name": "The Rating-Only Colour Rule",
+        "body": "Green-through-red fills appear only in the rating badge. They never go on tags, cells or chart chrome in the UI.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tabular Numbers Rule",
+        "body": "Metric values, progress bars, rating digits and counts use tabular figures so columns of numbers line up.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sentence Case Rule",
+        "body": "Labels, tabs and headings are written in sentence case, as in Echoes. Do not use uppercase or letter-spaced labels.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flow-Order Rule",
+        "body": "Tabs follow the work: Evidence, then Run, then Review & download, with Charts as an unnumbered annex. Inside each tab the primary action comes last.",
+        "section": "layout"
+      },
+      {
+        "name": "The Hairline-Not-Shadow Rule",
+        "body": "Group content with a 1px hairline border and an 8px panel radius. Never use a shadow for grouping.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** take every colour from the Echoes tokens above or from `.streamlit/config.toml`, with a light value and a dark value for each.",
+      "**Do** keep exactly one indigo primary per tab, at the end of its flow. Promote Save to primary only when there are unsaved changes.",
+      "**Do** show maturity levels as the rating badge (5→A … 1→E), always with \"Level N\" in text beside it.",
+      "**Do** use the warning colour, not danger, for disagreements and for items to review.",
+      "**Do** sort flagged items first and turn the review filter on by default when any item is flagged.",
+      "**Do** set file names, paths and JSON keys in Ubuntu Mono, and set counts and metrics in tabular figures.",
+      "**Do** use #2a2f40 text on dark-mode primary buttons, and the #537c17 / #8c5e1e dark fills for B and C badges."
+    ],
+    "donts": [
+      "**Don't** reintroduce Streamlit's default chrome: red accent, Source Sans, or emoji in metrics or labels.",
+      "**Don't** add a second indigo primary to a tab, or use indigo for decoration.",
+      "**Don't** use the A–E rating colours anywhere except the rating badge.",
+      "**Don't** add box-shadows for grouping. Use a hairline and an 8px radius.",
+      "**Don't** write uppercase or letter-spaced labels, or decorative eyebrows above headings.",
+      "**Don't** put real customer names or data into examples, placeholders or screenshots. Use neutral placeholders."
+    ]
+  }
+}

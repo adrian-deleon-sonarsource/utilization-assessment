@@ -1,0 +1,19 @@
+# secrets
+.env
+
+# customer data: evidence, Jev answers and finished reports
+customers/
+reports/
+sonarqube-support-info-*.json
+
+# local
+.venv/
+__pycache__/
+archive/
+.DS_Store
+~$*
+*.png
+!static/**
+!fonts/**
+.impeccable/live/
+**/.DS_Store
