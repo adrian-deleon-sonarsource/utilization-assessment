@@ -29,13 +29,13 @@ The judging and the writing are kept separate. Jev only judges candidate stateme
 - Runs locally on the assessor's laptop (`streamlit run app.py`, localhost:8501), with a CLI equivalent (`assess.py`, `charts.py`).
 - Workflow tabs: **Evidence → Run → Review & download → Charts**. One customer folder per customer under `customers/` (with `customer.json`, evidence files, `metrics/` and `output/`).
 - Jev answers are cached (`output/jev_answers.json`), so the report can be rebuilt from `customer.json` changes without another Jev call.
-- The evidence must fit a token budget of about 30k (`TOKEN_BUDGET`). When it doesn't, the assessor trims transcripts or splits meetings.
+- The evidence must fit Jev's limits: 32k tokens with any one question (`TOKEN_BUDGET`) and 64k with all questions (`REQUEST_BUDGET`). When it doesn't, the assessor trims the transcript or notes.
 - Annex charts come out as PNGs and the assessor pastes them into the docx by hand.
 - When a report is rebuilt, the existing one is moved to `reports/previous/` first, so hand edits are never lost.
 
 ## Capabilities and Constraints
 
-- **Design work is UI-only.** Impeccable work changes only the Streamlit UI: layout, copy, hierarchy and states in `app.py`. It never changes how Jev is called or how its answers are used. Leave the questions, prompts, thresholds (`YES`, `REVIEW_BAND`), `TOKEN_BUDGET`, decision logic in `assess.py`, and the content in `library.py` alone.
+- **Design work is UI-only.** Impeccable work changes only the Streamlit UI: layout, copy, hierarchy and states in `app.py`. It never changes how Jev is called or how its answers are used. Leave the questions, prompts, thresholds (`YES`, `REVIEW_BAND`), `TOKEN_BUDGET`/`REQUEST_BUDGET`, decision logic in `assess.py`, and the content in `library.py` alone.
 - **Stack is fixed:** Streamlit + python-docx + matplotlib. Do not rewrite it in another framework.
 - **Local-only, never hosted.** Customer data stays on the machine. The one exception is an assessment run, which sends the evidence to Jev at `api.typesafe.ai`.
 - Review lets the assessor include or exclude recommendations, and those choices persist to `customer.json` (`include_recs` / `exclude_recs`).

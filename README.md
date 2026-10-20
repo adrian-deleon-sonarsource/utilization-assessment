@@ -29,7 +29,7 @@ This opens http://localhost:8501. Then:
 1. **Sidebar → New customer.** Enter the customer name and your name as it appears in the transcript.
 2. **Evidence.** Upload your notes, the transcript(s), the telemetry CSVs and the system info JSON, and
    list any facts you verified yourself under *Confirmed facts*.
-3. **Run.** Check the evidence size against the token budget, then click *Run assessment with Jev*.
+3. **Run.** Check the evidence size against Jev's two limits, then click *Run assessment with Jev*.
    Jev's answers are cached, so *Rebuild report from cached answers* re-applies `customer.json`
    changes without another Jev call.
 4. **Review & download.** Check the level and the recommendations. Items marked *To review* are ones Jev was
@@ -93,5 +93,9 @@ as the customer or the Sonar account team.
 - `library.py`: set `LATEST_LTA` when a new LTA ships. The extra recommendations and summary
   statements are also defined there.
 - `templates/`: the report template and *Recommendations by Level*.
-- `TOKEN_BUDGET` in `assess.py`: Jev accepts about 32k tokens for the evidence plus the longest
-  question. If a run is over budget, trim small talk from the transcript or split meetings.
+- `TOKEN_BUDGET` and `REQUEST_BUDGET` in `assess.py`: Jev accepts 32k tokens for the evidence plus
+  any one question, and 64k for the evidence plus all questions. Caption-style transcripts (`.vtt`, or
+  `.txt` with `00:00:00 --> 00:00:00` timings) are sent without the timings and with each speaker's
+  consecutive captions merged, which roughly halves their size. If a run is still over budget, trim
+  small talk from the transcript or notes. Splitting a meeting into several files does not help:
+  all transcripts are sent together.

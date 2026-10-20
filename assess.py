@@ -51,7 +51,10 @@ RECS_MD = TEMPLATES / "Maturity Assessment Recommendations by Level.md"
 CUSTOMERS = HERE / "customers"
 OUTPUT_DIR = HERE / "reports"  # where the finished docx is written
 DOC_SUFFIXES = {".txt", ".md", ".vtt", ".docx"}
-TOKEN_BUDGET = 30_000  # Jev allows 32k tokens for state + the longest question
+# Jev's default limits (docs.typesafe.ai/models): 32k tokens for the state plus any one
+# question, 64k for the state plus all questions. Budgets leave a margin under each.
+TOKEN_BUDGET = 30_000    # state + the longest question (limit 32k)
+REQUEST_BUDGET = 60_000  # state + every question (limit 64k)
 
 YES = 0.5
 REVIEW_BAND = (0.3, 0.7)  # Nouls in this band are flagged for a human look
@@ -216,6 +219,54 @@ def read_doc(path):
     return path.read_text(errors="replace")
 
 
+CUE_TIMING = re.compile(r"^(?:\d+:)?\d{1,2}:\d{2}(?:[.,]\d+)?\s*-->\s*(?:\d+:)?\d{1,2}:\d{2}(?:[.,]\d+)?\b.*$")
+VOICE_TAG = re.compile(r"^<v(?:\.[^ >]*)?\s+([^>]+)>(.*?)(?:</v>)?$")
+SPEAKER = re.compile(r"^([^:]{1,60}?):\s+(.*)$")
+
+
+def clean_transcript(text):
+    """Caption-style transcript (.vtt, or .txt with cue timings) -> one line per speaker turn.
+
+    Drops cue timings, cue numbers, WEBVTT/NOTE headers and blank lines, and merges
+    consecutive captions from the same speaker. The spoken words are kept as they are.
+    Timings cost Jev many tokens and carry nothing it judges. Other text is returned unchanged.
+    """
+    lines = [l.strip() for l in text.splitlines()]
+    if sum(bool(CUE_TIMING.match(l)) for l in lines) < 3:
+        return text
+    captions, in_note = [], False
+    for i, l in enumerate(lines):
+        if not l:
+            in_note = False
+        elif in_note or l.split(" ", 1)[0] in ("NOTE", "STYLE", "REGION"):
+            in_note = True  # VTT comment/style block, ends at the next blank line
+        elif l == "WEBVTT" or l.startswith("WEBVTT ") or CUE_TIMING.match(l):
+            continue
+        elif l.isdigit() and i + 1 < len(lines) and CUE_TIMING.match(lines[i + 1]):
+            continue  # cue number
+        elif m := VOICE_TAG.match(l):
+            captions.append((m[1].strip(), strip_tags(m[2]).strip()))
+        else:
+            captions.append((None, strip_tags(l)))
+    # A "Name:" prefix counts as a speaker only when it recurs, so "So the answer: yes" stays text.
+    prefixes = [m[1] for who, c in captions if who is None and (m := SPEAKER.match(c))]
+    named = {s for s in prefixes if prefixes.count(s) >= 3}
+    turns = []  # [speaker, [what they said]]; speaker None = a caption kept on its own line
+    for who, said in captions:
+        if who is None and (m := SPEAKER.match(said)) and m[1] in named:
+            who, said = m[1], m[2]
+        if who is not None and turns and turns[-1][0] == who:
+            turns[-1][1].append(said)  # only the same speaker's consecutive captions are merged
+        else:
+            turns.append([who, [said]])
+    return "\n".join(f"{who}: {' '.join(said)}" if who else said[0] for who, said in turns)
+
+
+def strip_tags(caption):
+    """VTT cue markup (<c.yellow>, <i>, <00:00:01.000>) around the spoken words."""
+    return re.sub(r"</?(?:c|i|b|u|v|lang|ruby|rt)\b[^>]*>|<\d[\d:.]*>", "", caption)
+
+
 def find_customer(arg):
     path = Path(arg).expanduser()
     if path.is_dir():
@@ -295,7 +346,8 @@ def load_customer(folder):
         "assessor": assessor,
         "confirmed": cfg.get("confirmed", []),
         "notes": "\n\n".join(f"### {f.name}\n{read_doc(f)}" if len(notes) > 1 else read_doc(f) for f in notes),
-        "transcript": "\n\n".join(f"### {f.name}\n{read_doc(f)}" if len(transcripts) > 1 else read_doc(f) for f in transcripts),
+        "transcript": "\n\n".join(f"### {f.name}\n{clean_transcript(read_doc(f))}" if len(transcripts) > 1
+                                  else clean_transcript(read_doc(f)) for f in transcripts),
         "files": {"notes": [f.name for f in notes], "transcripts": [f.name for f in transcripts],
                   "metrics": sorted(f.name for f in metrics.glob("*.csv")), "server_info": info_file},
         "server_info": server_info,
@@ -860,12 +912,32 @@ def load_recs():
     return recs, md_sections
 
 
+def estimate_tokens(text):
+    """Jev's token count, approximately: one per word, digit and punctuation mark.
+    Within about 10% of the usage Jev reported for past runs (characters / 4 was up to 40%
+    low on timestamped transcripts). It mostly errs high."""
+    return len(re.findall(r"[A-Za-z]+|\d|[^\sA-Za-z\d]", text))
+
+
 def plan(ctx, recs):
-    """Jev state, questions, and the estimated tokens of state + the longest question."""
+    """Jev state, questions, and estimated tokens: {"question": state + the longest
+    question (TOKEN_BUDGET), "request": state + every question (REQUEST_BUDGET)}."""
     state = build_state(ctx)
     questions = build_questions(recs, state, ctx)
-    q_tokens = max(len(json.dumps(q.model_dump() if hasattr(q, "model_dump") else str(q), default=str)) for q in questions.values()) // 4
-    return state, questions, len(json.dumps(state)) // 4 + q_tokens
+    q = [estimate_tokens(json.dumps(x.model_dump() if hasattr(x, "model_dump") else str(x), default=str)) for x in questions.values()]
+    s = estimate_tokens(json.dumps(state))
+    return state, questions, {"question": s + max(q), "request": s + sum(q)}
+
+
+def over_budget(tokens):
+    """Why the evidence is too large for one Jev call, or None when it fits."""
+    if tokens["question"] > TOKEN_BUDGET:
+        return (f"The evidence plus the longest question is ~{tokens['question']:,} tokens; Jev allows 32k "
+                f"(budget {TOKEN_BUDGET:,}). Trim the transcript or notes, for example small talk.")
+    if tokens["request"] > REQUEST_BUDGET:
+        return (f"The evidence plus all questions is ~{tokens['request']:,} tokens; Jev allows 64k "
+                f"(budget {REQUEST_BUDGET:,}). Trim the transcript or notes, for example small talk.")
+    return None
 
 
 def run(ctx, from_cache=False, log=lambda msg: print(msg, file=sys.stderr)):
@@ -881,9 +953,10 @@ def run(ctx, from_cache=False, log=lambda msg: print(msg, file=sys.stderr)):
         answers, meta = cached["answers"], cached.get("meta")
     else:
         state, questions, tokens = plan(ctx, recs)
-        if tokens > TOKEN_BUDGET:
-            raise AssessError(f"Evidence is ~{tokens:,} tokens; Jev allows ~32k for state + question. Trim the transcript or notes.")
-        log(f"Asking Jev {len(questions)} questions (~{tokens:,} tokens of evidence)...")
+        if problem := over_budget(tokens):
+            raise AssessError(problem)
+        log(f"Asking Jev {len(questions)} questions (~{tokens['question']:,} tokens for evidence + longest question, "
+            f"~{tokens['request']:,} for the whole request)...")
         answers, meta = ask_jev(state, questions)
         ctx["cache"].write_text(json.dumps({"answers": answers, "meta": meta}, indent=2, default=str))
 

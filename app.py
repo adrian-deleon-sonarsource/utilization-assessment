@@ -337,12 +337,16 @@ with tab_run:
             questions, tokens = None, None
             st.warning(str(e))
         if tokens is not None:
-            st.progress(min(tokens / assess.TOKEN_BUDGET, 1.0),
-                        text=f"Evidence: ~{tokens:,} tokens · {tokens / assess.TOKEN_BUDGET:.0%} of the "
-                             f"~{assess.TOKEN_BUDGET:,}-token budget · {len(questions)} questions for Jev")
-            if tokens > assess.TOKEN_BUDGET:
-                st.error("Too much evidence for one Jev call: trim the transcript or notes (for example, remove small talk "
-                         "or a second meeting's transcript).")
+            gauges = [("Evidence + longest question", tokens["question"], assess.TOKEN_BUDGET, "32k"),
+                      (f"Whole request ({len(questions)} questions)", tokens["request"], assess.REQUEST_BUDGET, "64k")]
+            with st.container(horizontal=True):
+                for label, used, budget, limit in gauges:
+                    st.progress(min(used / budget, 1.0), text=f"{label}: ~{used:,} of {budget:,} tokens (Jev limit {limit})")
+            if problem := assess.over_budget(tokens):
+                st.error(f"Too much evidence for one Jev call. {problem}")
+            elif max(used / budget for _, used, budget, _ in gauges) > 0.9:
+                st.warning("Close to Jev's limit: a longer transcript or more notes may not fit. "
+                           "The counts are estimates, within about 10%.")
             with st.expander("Inputs Jev will see"):
                 st.write({k: v for k, v in ctx["files"].items()})
                 if ctx["telemetry_bullets"]:
@@ -358,7 +362,7 @@ with tab_run:
                                 disabled=not has_cache,
                                 help="No Jev call: applies customer.json changes (confirmed facts excluded) to the last answers.")
             go = st.button("Run assessment with Jev", type="secondary" if has_cache else "primary",
-                           disabled=tokens is None or tokens > assess.TOKEN_BUDGET or not replace_ok
+                           disabled=tokens is None or assess.over_budget(tokens) is not None or not replace_ok
                            or not os.environ.get("TYPESAFE_API_KEY"))
         if go or rebuild:
             with st.status("Running..." if go else "Rebuilding...", expanded=True) as status:
