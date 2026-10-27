@@ -99,3 +99,5 @@ as the customer or the Sonar account team.
   consecutive captions merged, which roughly halves their size. If a run is still over budget, trim
   small talk from the transcript or notes. Splitting a meeting into several files does not help:
   all transcripts are sent together.
+
+<!-- Test change to trigger Gitar repo scan. -->
